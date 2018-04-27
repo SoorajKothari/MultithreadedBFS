@@ -89,6 +89,7 @@ void* bfs(void* params)
 	{
 		if (found) pthread_exit((void*)NULL);
 		
+		pthread_mutex_lock(&mutexLock);
 		while (!toVisit.empty())
 		{
 			if (found) pthread_exit((void*)NULL);
@@ -100,7 +101,6 @@ void* bfs(void* params)
 			{
 				finalAns << "Found the required Data at Node: " << current.getNodeID() << endl;
 				
-				pthread_mutex_lock(&mutexLock);
 				found = true;
 				pthread_mutex_unlock(&mutexLock);
 				
@@ -108,8 +108,6 @@ void* bfs(void* params)
 			}
 			
 			vector<Edge> outboundEdges = current.getOutboundEdges();
-			
-			pthread_mutex_lock(&mutexLock);
 			
 			for (int i = 0; i < outboundEdges.size(); ++i)
 			{
@@ -119,8 +117,6 @@ void* bfs(void* params)
 					toVisit.push(parameters.graph -> getNode(outboundEdges[i].getDestID()));
 				}
 			}
-			
-			pthread_mutex_unlock(&mutexLock);
 		}
 		
 		pthread_mutex_lock(&mutexLock);
