@@ -27,7 +27,7 @@ The program needs a file named generated.txt in the same directory as itself. Th
 #### Format of Input File
 + The first line contains two integers. Number of Nodes (<b>N</b>) and Number of Edges (<b>E</b>).
 + The next <b>N</b> lines contain a single string on each line representing the data to store at each Node.
-+ The next <b>M</b> lines contain a 3 integers (<b>u</b>,<b>v</b>,<b>w</b>) on each line representing a single Edge.
++ The next <b>M</b> lines contain 3 integers (<b>u</b>,<b>v</b>,<b>w</b>) on each line representing a single Edge.
   + <b>u</b> denotes the source of the Edge
   + <b>v</b> denotes the destination of the Edge
   + <b>w</b> denotes the weight of the Edge
